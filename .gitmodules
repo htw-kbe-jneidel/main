@@ -1,0 +1,10 @@
+[submodule "vat-calculator"]
+	path = vat-calculator
+	url = https://github.com/htw-kbe-jneidel/vat-calculator
+
+[submodule "planning"]
+	path = planning
+	url = https://github.com/htw-kbe-jneidel/planning
+
+# add new ones:
+#   git submodule add URL [LCOAL_PATH]
