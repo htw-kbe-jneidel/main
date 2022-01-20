@@ -9,4 +9,19 @@
   branch = master
 
 # add new ones:
-#   git submodule add URL [LCOAL_PATH]
+#   git submodule add URL [LOCAL_PATH]
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/htw-kbe-jneidel/frontend
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/htw-kbe-jneidel/gateway
+[submodule "distance-calculator"]
+	path = distance-calculator
+	url = https://github.com/htw-kbe-jneidel/distance-calculator
+[submodule "product"]
+	path = product
+	url = https://github.com/htw-kbe-jneidel/product
+[submodule "storage"]
+	path = storage
+	url = https://github.com/htw-kbe-jneidel/storage
