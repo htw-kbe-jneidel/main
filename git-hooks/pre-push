@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gitRoot=$(git rev-parse --show-toplevel)
+
+eslint --config ~/.config/eslint/eslintrc --ext '.ts' --config ~/.config/eslint/eslintrc-ts --parser-options "{'tsconfigRootDir':\"$gitRoot\"}" "$gitRoot" --resolve-plugins-relative-to=/usr/lib/node_modules --fix
