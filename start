@@ -1,6 +1,16 @@
 #! /bin/sh
 
+## dependencies
 sudo systemctl start rabbitmq && echo Started rabbitmq
 $BROWSER "http://localhost:15672" >/dev/null 2>/dev/null & # guest:guest
 
 sudo systemctl start mongodb && echo Started mongodb
+
+## micro services
+npm run start-prod --prefix vat-calculator &
+npm run start-prod --prefix storage &
+npm run start-prod --prefix product &
+npm run start-prod --prefix distance-calculator &
+npm run start-prod --prefix api &
+npm run start-prod --prefix gateway &
+npm run start-prod --prefix frontend &
