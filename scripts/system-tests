@@ -1,0 +1,50 @@
+#! /bin/sh
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+DIR=`dirname $0`
+cd $DIR
+cd .. # pwd is main repo
+
+scripts/start
+sleep 5 # allow time for startup
+
+cleanup() {
+  scripts/stop
+}
+trap cleanup EXIT
+
+printf "${GREEN}--------------\ntest get /product\n"
+
+mongoPopulationFile=scripts/mongo/createStorage.js
+if [ ! -f "$mongoPopulationFile" ]; then
+  echo "mongoPopulationFile at $mongoPopulationFile missing, please generate it"
+  exit 1
+fi
+
+randomProductId=$(head -n-1 $mongoPopulationFile | tail -n+5 | shuf -n1 | cut -d\" -f4)
+
+res=$(curl -Ss -X 'GET' "http://localhost:8001/product?productId=$randomProductId" | jq .error)
+if [ "$res" = "false" ]; then
+  printf "${GREEN}success get /product\n"
+else
+  printf "${RED}failed get /product\n"
+  exit 1
+fi
+
+printf "${GREEN}--------------\ntest csv export\n"
+
+rm csv-export/*.csv
+
+curl -Ss -X 'POST' 'http://localhost:8000/api/initiateCsvExport' >/dev/null
+
+if [ -f "csv-export/store-locations.csv" ] && [ -f "csv-export/products.csv" ]; then
+  printf "\n${GREEN}success test csv export\n"
+else
+  printf "${RED}failed test csv export\n"
+  exit 1
+fi
+
+exit 0
