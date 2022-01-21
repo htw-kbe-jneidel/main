@@ -1,1 +1,1 @@
-scripts/mongo/writeStorageScript.js
+scripts/mongo/createStorage.js
