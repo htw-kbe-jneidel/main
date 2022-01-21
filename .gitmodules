@@ -9,6 +9,9 @@
 	path = planning
 	url = https://github.com/htw-kbe-jneidel/planning
   branch = master
+[submodule "api"]
+	path = api
+	url = https://github.com/htw-kbe-jneidel/api
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/htw-kbe-jneidel/frontend
