@@ -24,3 +24,6 @@
 [submodule "storage"]
 	path = storage
 	url = https://github.com/htw-kbe-jneidel/storage
+[submodule "csv-export"]
+	path = csv-export
+	url = https://github.com/htw-kbe-jneidel/csv-export
