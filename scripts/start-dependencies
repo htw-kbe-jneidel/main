@@ -1,0 +1,6 @@
+#! /bin/sh
+
+sudo systemctl start rabbitmq && echo Started rabbitmq
+$BROWSER "http://localhost:15672" >/dev/null 2>/dev/null & # guest:guest
+
+sudo systemctl start mongodb && echo Started mongodb

@@ -1,0 +1,3 @@
+#! /bin/sh
+
+kill $(ps -ax | grep start-prod | head -n-1 | cut -d\  -f1 | tr "\n" " ")
