@@ -8,7 +8,7 @@ DIR=`dirname $0`
 cd $DIR
 cd .. # pwd is main repo
 
-scripts/start
+scripts/start &
 sleep 5 # allow time for startup
 
 cleanup() {
@@ -34,7 +34,7 @@ else
   exit 1
 fi
 
-printf "${GREEN}--------------\ntest csv export\n"
+printf "${GREEN}--------------\ntest csv export\n${NC}"
 
 rm csv-export/*.csv
 

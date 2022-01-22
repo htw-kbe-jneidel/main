@@ -4,12 +4,14 @@ DIR=`dirname $0`
 cd $DIR
 cd ..
 
-## micro services
-npm run start-prod --prefix vat-calculator &
-npm run start-prod --prefix storage &
-npm run start-prod --prefix product &
-npm run start-prod --prefix distance-calculator &
-npm run start-prod --prefix api &
-npm run start-prod --prefix gateway &
-npm run start-prod --prefix frontend &
-npm run start-prod --prefix csv-export &
+concurrently \
+  -n "api,csv-export,distance-calculator,frontend,gateway,product,storage,vat-calculator" \
+  -c "bgGrey.magenta,bgRed,bgBlue,bgMagenta,bgGreen.black,bgYellow.black,bgCyan.black,bgBlack.yellow" \
+    "npm run start-prod --prefix api" \
+    "npm run start-prod --prefix csv-export" \
+    "npm run start-prod --prefix distance-calculator" \
+    "npm run start-prod --prefix frontend" \
+    "npm run start-prod --prefix gateway" \
+    "npm run start-prod --prefix product" \
+    "npm run start-prod --prefix storage" \
+    "npm run start-prod --prefix vat-calculator"

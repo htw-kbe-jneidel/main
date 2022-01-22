@@ -1,0 +1,16 @@
+{
+  "name": "main",
+  "repository": "htw-kbe-jneidel/main",
+  "author": {
+    "name": "Jonathan Neidel",
+    "email": "git@jneidel.com",
+    "url": "https://jneidel.com"
+  },
+  "scripts": {
+    "start": "./scripts/start",
+    "install": "./scripts/install"
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
