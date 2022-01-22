@@ -1,0 +1,15 @@
+#! /bin/sh
+
+DIR=`dirname $0`
+cd $DIR
+cd ..
+
+npm install
+npm install --prefix api
+npm install --prefix csv-export
+npm install --prefix distance-calculator
+npm install --prefix frontend
+npm install --prefix gateway
+npm install --prefix product
+npm install --prefix storage
+npm install --prefix vat-calculator

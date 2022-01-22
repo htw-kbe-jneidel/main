@@ -39,3 +39,38 @@ into the app, providing redirects to the other HTTP services.
 - [API](https://github.com/htw-kbe-jneidel/api): Making the above message queue
 RPC calls available through HTTP requests.
 - [frontend](https://github.com/htw-kbe-jneidel/frontend): A user interface for rendering the data.
+
+## install
+
+```
+git clone --recurse-submodules -j4 git@github.com:htw-kbe-jneidel/main.git
+npm run install
+```
+
+## start
+
+```
+./scripts/start-dependencies
+npm start
+```
+
+Dependencies:
+- Rabbit MQ
+- MongoDB
+- Redis
+
+## tests
+
+- System tests:
+```sh
+./scripts/system-test
+```
+- Integration tests:
+```sh
+npm test --prefix storage
+npm test --prefix product
+```
+- Unit tests:
+```sh
+npm test --prefix vat-calculator
+```
